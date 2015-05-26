@@ -2929,6 +2929,10 @@
     function parseObjectInitialiser() {
         var properties = [], hasProto = {value: false}, node = new Node();
 
+        if (extra.attachComment) {
+            node.processComment();
+        }
+
         expect('{');
 
         while (!match('}')) {
